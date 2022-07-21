@@ -1,0 +1,23 @@
+# Increase volume
+"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+   XF86AudioRaiseVolume
+
+# Decrease volume
+"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+   XF86AudioLowerVolume
+
+# Mute volume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+   XF86AudioMute
+# Backlight up
+"xbacklight -inc 5"
+	XF86MonBrightnessUp
+# Backlight down
+"xbacklight -dec 5"
+	XF86MonBrightnessDown
+# Screenshot Whole Screen
+"maim ~/ent/pictures/screenshots/$(date '+%Y%m%d-%H%M%S').png"
+	Print
+# Screenshots Select
+"maim -s ~/ent/pictures/screenshots/$(date '+%Y%m%d-%H%M%S').png"
+	Super + Print

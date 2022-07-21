@@ -1,0 +1,8 @@
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "+|"
+media_library_primary_tag = album_artist
+mpd_music_dir = /home/lovesome/media/music
+lyrics_directory = /home/lovesome/.config/mpd/lyrics

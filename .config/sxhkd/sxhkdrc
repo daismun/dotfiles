@@ -1,0 +1,88 @@
+#-------------------#
+#   PROGRAM BINDS   #
+#-------------------#
+
+super + @space
+	rofi -show drun -modi drun,run
+# browser
+super + w
+	brave
+# File Manager
+super + f
+	st -e vifm
+# terminal emulator
+super + Return
+	st
+super + {t,shift + t,s,shift + s}
+   bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+# ncmpcpp
+super + n
+	st -e ncmpcpp
+# make sxhkd reload its configuration files:
+super + d
+	discord
+
+#-------------------#
+#   FUNCTION KEYS   #
+#-------------------#
+
+# Brightness
+XF86MonBrightnessUp
+	xbacklight -inc 5
+XF86MonBrightnessDown
+	xbacklight -dec 5
+# volume up
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+# volume down
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+# mute volume
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle &&
+# mute mic
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# screenshot
+Print
+	maim ~/ent/pictures/screenshots/$(date '+%Y%m%d-%H%M%S').png
+super + Print
+	maim -s ~/ent/pictures/screenshots/$(date '+%Y%m%d-%H%M%S').png
+
+
+#-----------------#
+#   BSPWM KEYS    #
+#-----------------#
+
+super + shift + q
+	bspc quit
+# close and kill
+super + shift + c
+	bspc node -c
+# set the window state
+super + {t,shift + t,s,shift + s}
+   bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + m
+	bspc desktop -l next
+
+# focus the next/previous window in the current desktop
+super + {j,k}
+	bspc node -f {next,prev}.local.!hidden.window
+# focus the next/previous desktop in the current monitor
+super + {h,l}
+	bspc desktop -f {prev,next}.local
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}

@@ -1,0 +1,26 @@
+export ZDOTDIR="$HOME/.config/zsh"
+# XDG
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+# Cleanup
+ export HISTFILE="$XDG_STATE_HOME"/zsh/history
+export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
+export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+export DOT_SAGE="$XDG_CONFIG_HOME"/sage
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+# Path
+export PATH="$PATH:$CARGO_HOME/bin:$HOME/.local/bin:$HOME/node_modules/.bin"
+export GOPATH="$HOME/.local/go"
+export EDITOR="nvim"
+export BROWSER="brave"
+# Misc
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORMTHEME=qt5ct
+
