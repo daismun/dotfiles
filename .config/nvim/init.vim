@@ -14,7 +14,7 @@ filetype off
 syntax enable
 
 nnoremap Gc :!groff -ms % -Tpdf > %.pdf && setsid -f zathura %.pdf<CR>
-nnoremap Lc :!pdflatex % && setsid -f zathura *.pdf<CR>
+nnoremap Lc :!pdflatex "%" && setsid -f zathura *.pdf<CR>
 nnoremap Fd :filetype detect<CR>
 nnoremap <C-p> "+p
 vnoremap <C-y> "+y

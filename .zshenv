@@ -19,8 +19,7 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export PATH="$PATH:$CARGO_HOME/bin:$HOME/.local/bin:$HOME/node_modules/.bin"
 export GOPATH="$HOME/.local/go"
 export EDITOR="nvim"
-export BROWSER="brave"
+export BROWSER="librewolf"
 # Misc
 export _JAVA_AWT_WM_NONREPARENTING=1
 export QT_QPA_PLATFORMTHEME=qt5ct
-

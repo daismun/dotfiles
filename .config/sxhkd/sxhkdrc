@@ -6,7 +6,7 @@ super + @space
 	rofi -show drun -modi drun,run
 # browser
 super + w
-	brave
+	librewolf
 # File Manager
 super + f
 	st -e vifm
@@ -45,9 +45,9 @@ XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # screenshot
 Print
-	maim ~/ent/pictures/screenshots/$(date '+%Y%m%d-%H%M%S').png
+	maim ~/$(date '+%Y%m%d-%H%M%S').png
 super + Print
-	maim -s ~/ent/pictures/screenshots/$(date '+%Y%m%d-%H%M%S').png
+	maim -s ~/$(date '+%Y%m%d-%H%M%S').png
 
 
 #-----------------#

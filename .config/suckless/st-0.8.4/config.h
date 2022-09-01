@@ -105,7 +105,7 @@ static const char *colorname[] = {
 	"#A6DA95",
 	"#EED49F",
 	"#8AADF4",
-	"#F5BDE6",
+	"#c6a0f6",
 	"#8BD5CA",
 	"#B8C0E0",
 
@@ -115,7 +115,7 @@ static const char *colorname[] = {
 	"#A6DA95",
 	"#EED49F",
 	"#8AADF4",
-	"#F5BDE6",
+	"#c6a0f6",
 	"#8BD5CA",
 	"#A5ADCB",
 
@@ -133,6 +133,13 @@ unsigned int defaultfg = 256;
 unsigned int defaultbg = 257;
 unsigned int defaultcs = 258;
 static unsigned int defaultrcs = 258;
+/*
+ * Colors used, when the specific fg == defaultfg. So in reverse mode this
+ * will reverse too. Another logic would only make the simple feature too
+ * complex.
+ */
+static unsigned int defaultitalic = 7;
+static unsigned int defaultunderline = 7;
 /*
  * Default shape of cursor
  * 2: Block ("█")
@@ -477,3 +484,4 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
+

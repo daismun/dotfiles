@@ -4,11 +4,11 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Fira Code:size=11" };
-static const char dmenufont[]       = "Fira Code:size=11";
+static const char *fonts[]          = { "Fira Code:size=12", "JetBrainsMono Nerd Font:size=12" };
+static const char dmenufont[]       = "Fira Code:size=12";
 static const char col_bg[]          = "#181926";
 static const char col_fg[]          = "#cad3f5";
-static const char col_purple[]      = "#b7bdf8";
+static const char col_purple[]      = "#c6a0f6";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_fg, col_bg, col_bg },
@@ -56,7 +56,7 @@ static const char *dmenucmd[] 		= { "dmenu_run", "-m", dmenumon, "-fn", dmenufon
 static const char *termcmd[]  		= { "st", NULL };
 static const char *rofi[]  		   = { "rofi", "-modi", "drun,run" , "-show", "drun", NULL };
 static const char *tmux[]  			= { "st", "-e", "tmux", "attach", NULL };
-static const char *browser[]  		= { "brave", NULL };
+static const char *browser[]  		= { "librewolf", NULL };
 static const char *termmanager[]		= { "st", "-e", "vifm",  NULL };
 
 static Key keys[] = {

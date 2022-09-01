@@ -1,10 +1,11 @@
 # Created by Murasaki
+
 setopt auto_cd
 typeset -g -A key
 
 # BUllSHJIT
 
-bindkey "^?" backward-delete-char
+bindkey "^?"    backward-delete-char
 bindkey "^U"    backward-kill-line
 bindkey "^u"    backward-kill-line
 bindkey "^[l"   down-case-word
@@ -23,6 +24,8 @@ bindkey -s '^G' 'mogrify -format jpeg -quality 75% -path cmpr/ -resize 75% *.{jp
 
 # Aliases {{{
 
+alias caramel_session='mkcd ~/SESSION_CARAMEL && sshfs lovesome@caramel:$HOME ~/SESSION_CARAMEL && spacefm && fusermount -u ~/SESSION_CARAMEL && rm -r ~/SESSION_CARAMEL >> /dev/null 2<&1'
+alias instaloader='~/.local/bin/instaloader --no-captions --no-metadata-json --no-compress-json --no-video-thumbnails -l f.r.noon -p Mhoou7776das2'
 alias caramel_mac='echo "40:8d:5c:f2:04:cd"'
 alias sagej='sage -n jupyter'
 alias move_by_date='for x in */*; do   d=$(date -r "$x" +%Y-%m-%d);   mkdir -p DATES/"$d";   mv -- "$x" DATES/"$d/"; done'
@@ -32,7 +35,7 @@ alias vim='nvim'
 alias vi="nvim --noplugin"
 alias cat="bat"
 alias fix_pulseaudio="pulseaudio --daemonize=no --exit-idle-time=-1"
-alias p="doas pacman"
+alias e="doas emerge"
 alias pm="pulsemixer"
 alias am="alsamixer"
 alias ls="exa -l --icons"
@@ -61,28 +64,10 @@ function mkcd() {
 
 # Completion
 
-zmodload zsh/complist 
-autoload -Uz compinit
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-zstyle :compinstall filename '${HOME}/.zshrc'
-zstyle ':completion:*:pacman:*' force-list always
-zstyle ':completion:*:*:pacman:*' menu yes select
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*'   force-list always
-zstyle ':completion:*:*:killall:*' menu yes select
-zstyle ':completion:*:killall:*'   force-list always
-
-jav () {
-  if [ -z "$1" ] ; then
-    read name
-  else
-    name="$1"
-  fi
-  links="$(curl -s "$(curl -s "https://www2.javhdporn.net/video/$name" | grep "embedURL" | grep -o "{.*}" | jq '.["@graph"]' | jq -r '.[].embedURL' | sed '/^null$/d' | sed 's/\/v\//\/api\/source\//')" --data-raw 'r=&d=javmvp.com' | jq -r '.data[] | select(.label | contains("720p", "480p","360p")).file' | tail -n1)"
-  mpv "$links"
-}
-
+autoload -U compinit
+compinit
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
 # Colored man
 man() {
@@ -101,6 +86,6 @@ man() {
 PROMPT='%F{6}%n%f@%F{9}%m%f %F{4}%B%~%b%f %# '
 
 # Good stuff
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions.zsh
 # vim: fdm=marker:

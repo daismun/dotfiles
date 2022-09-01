@@ -20,4 +20,4 @@
 	Print
 # Screenshots Select
 "maim -s ~/ent/pictures/screenshots/$(date '+%Y%m%d-%H%M%S').png"
-	Super + Print
+	Mod4 + Print
